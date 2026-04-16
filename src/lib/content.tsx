@@ -365,7 +365,7 @@ export const siteContent = {
     logo: "UD",
     links: ["Home", "About", "Skills", "Projects", "Contact"],
     cta: "Hire Me",
-    ctaHref: "#contact",
+    ctaHref: "mailto:uvarajandev@gmail.com",
   },
 
   footer: {
