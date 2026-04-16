@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg-page: #0A0A0F;
+  --color-bg-card: #111118;
+  --color-bg-elevated: #1A1A24;
+  --color-accent-primary: #7C3AED;
+  --color-accent-hover: #A78BFA;
+  --color-bg-accent-tint: #1E1030;
+  
+  --color-text-heading: #F0F0FF;
+  --color-text-body: #A0A0B8;
+  --color-text-muted: #5A5A72;
+  --color-border-muted: #5A5A72;
+  
+  --color-success: #10B981;
+  --color-achievement: #F59E0B;
+  --color-link: #38BDF8;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --animate-blob-float-1: blob-float-1 12s ease-in-out infinite alternate;
+  --animate-blob-float-2: blob-float-2 15s ease-in-out infinite alternate;
+  --animate-blob-float-3: blob-float-3 18s ease-in-out infinite alternate;
+  
+  /* Utilities for glass */
+  --color-glass-surface: color-mix(in srgb, var(--color-bg-card) 40%, transparent);
+  --color-glass-border: color-mix(in srgb, var(--color-bg-elevated) 60%, transparent);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes blob-float-1 {
+  0% { transform: translate(0px, 0px) scale(1); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  50% { transform: translate(2vw, 5vh) scale(1.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  100% { transform: translate(-2vw, -2vh) scale(1); border-radius: 40% 60% 40% 60% / 50% 60% 30% 60%; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes blob-float-2 {
+  0% { transform: translate(0px, 0px) scale(1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { transform: translate(-4vw, -5vh) scale(1.05); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  100% { transform: translate(1vw, 3vh) scale(0.95); border-radius: 50% 50% 60% 40% / 30% 60% 40% 70%; }
+}
+
+@keyframes blob-float-3 {
+  0% { transform: translate(0px, 0px) scale(1); border-radius: 50% 50% 60% 40% / 30% 60% 40% 70%; }
+  50% { transform: translate(3vw, 2vh) scale(0.9); border-radius: 30% 70% 50% 50% / 50% 40% 60% 50%; }
+  100% { transform: translate(-1vw, 4vh) scale(1.1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg-page);
+  color: var(--color-text-body);
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-primary);
+}
+
+/* Base Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-heading);
+  font-family: var(--font-display);
+}
+
+/* Liquid Ripple Effect */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.btn-ripple::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  display: block;
+  border-radius: 50%;
+  width: 250%;
+  padding-top: 250%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease-out;
+  pointer-events: none;
+}
+.btn-ripple:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --animate-blob-float-1: none;
+    --animate-blob-float-2: none;
+    --animate-blob-float-3: none;
+  }
 }
