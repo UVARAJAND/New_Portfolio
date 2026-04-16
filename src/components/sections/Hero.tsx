@@ -131,7 +131,7 @@ export function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] font-mono text-white/30 uppercase tracking-[0.3em]">Scroll</span>
+        <span className="text-[10px] font-mono text-white/30 uppercase tracking-[0.3em]"></span>
         <ChevronDown size={24} className="text-white/30 animate-bounce" />
       </motion.div>
     </section>

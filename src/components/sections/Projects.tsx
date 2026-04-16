@@ -5,7 +5,6 @@ import { ExternalLink } from "lucide-react"
 import { FaGithub, FaLinkedin, FaVideo } from "react-icons/fa6"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { cn } from "@/lib/utils"
 import { ProjectModal } from "@/components/ui/ProjectModal"
 import { siteContent, type Project } from "@/lib/content"
 

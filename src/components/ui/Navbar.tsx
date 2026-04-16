@@ -114,12 +114,12 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center relative z-10">
-          <button
-            onClick={() => scrollToSection((siteContent.navbar.ctaHref || "#contact").replace("#", ""))}
+          <a
+            href="mailto:uvarajandev@gmail.com"
             className="px-[24px] py-[10px] rounded-[32px] bg-accent-primary/80 text-white font-sans font-medium text-[14px] backdrop-blur-md border border-accent-primary hover:bg-accent-primary hover:scale-[1.03] transition-all shadow-[0_0_24px_rgba(124,58,237,0.5)]"
           >
             {siteContent.navbar.cta}
-          </button>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -162,12 +162,12 @@ export function Navbar() {
               </Link>
             ))}
           </nav>
-          <button 
+          <a 
+            href="mailto:uvarajandev@gmail.com"
             className="mt-6 px-[32px] py-[16px] rounded-[40px] bg-accent-primary border border-accent-primary/50 text-white font-sans font-medium text-[16px] shadow-[0_0_32px_rgba(124,58,237,0.6)] relative z-10 transition-transform active:scale-95"
-            onClick={() => scrollToSection((siteContent.navbar.ctaHref || "#contact").replace("#", ""))}
           >
             {siteContent.navbar.cta}
-          </button>
+          </a>
         </motion.div>
       )}
       </AnimatePresence>

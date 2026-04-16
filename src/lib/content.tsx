@@ -324,7 +324,7 @@ export const siteContent = {
         span: "md:col-span-2",
       },
       {
-        rank: "Team Lead",
+        rank: "Mentor",
         title: "CASTILO'25 Hackathon",
         desc: "Led 4-member team — sprint planning, code review",
         span: "md:col-span-3",
