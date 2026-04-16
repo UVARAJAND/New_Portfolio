@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils"
 import { ProjectModal } from "@/components/ui/ProjectModal"
 import { siteContent, type Project } from "@/lib/content"
 
+const EASE_OUT_CUBIC_BEZIER: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
 export function Projects() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -26,7 +28,7 @@ export function Projects() {
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
-    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: EASE_OUT_CUBIC_BEZIER } },
   }
 
   const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
@@ -34,7 +36,7 @@ export function Projects() {
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: index * 0.15 }}
+      transition={{ duration: 0.8, ease: EASE_OUT_CUBIC_BEZIER, delay: index * 0.15 }}
       className="h-full relative group cursor-pointer w-full"
       onClick={() => setSelectedProject(project)}
       onKeyDown={(e) => {
@@ -162,7 +164,7 @@ export function Projects() {
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, ease: EASE_OUT_CUBIC_BEZIER }}
                 className="w-full overflow-hidden"
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 pb-4 w-full pt-16">

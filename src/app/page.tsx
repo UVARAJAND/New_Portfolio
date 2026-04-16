@@ -11,6 +11,8 @@ import { Achievements } from "@/components/sections/Achievements"
 import { Contact } from "@/components/sections/Contact"
 import { motion } from "framer-motion"
 
+const EASE_PAGE_FADE: [number, number, number, number] = [0.22, 1, 0.36, 1]
+
 export default function Home() {
   return (
     <>
@@ -18,7 +20,7 @@ export default function Home() {
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.8, ease: EASE_PAGE_FADE }}
         className="flex flex-col pb-[120px]"
       >
         <Hero />

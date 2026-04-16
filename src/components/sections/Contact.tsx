@@ -5,22 +5,24 @@ import { Copy, Check, MapPin } from "lucide-react"
 import { motion } from "framer-motion"
 import { siteContent } from "@/lib/content"
 
+const EASE_OUT_CUBIC_BEZIER: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
 export function Contact() {
   const containerVariants = {
     hidden: { opacity: 0 },
     show: { 
       opacity: 1, 
-      transition: { duration: 1, ease: "easeOut", staggerChildren: 0.15 } 
+      transition: { duration: 1, ease: "easeOut" as const, staggerChildren: 0.15 } 
     },
   }
 
   const childVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
-    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: EASE_OUT_CUBIC_BEZIER } },
   }
 
   const socialHover = {
-    hover: { scale: 1.1, y: -5, transition: { type: "spring", stiffness: 400, damping: 10 } }
+    hover: { scale: 1.1, y: -5, transition: { type: "spring" as const, stiffness: 400, damping: 10 } }
   }
 
   const [copied, setCopied] = useState(false)

@@ -4,6 +4,8 @@ import { ChevronDown, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { siteContent } from "@/lib/content"
 
+const EASE_OUT_CUBIC_BEZIER: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
 export function Hero() {
   const primaryHref = siteContent.hero.cta.primaryHref
   const secondaryHref = siteContent.hero.cta.secondaryHref
@@ -28,7 +30,7 @@ export function Hero() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
-    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: EASE_OUT_CUBIC_BEZIER } },
   }
 
   return (

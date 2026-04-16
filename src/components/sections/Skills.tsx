@@ -3,6 +3,8 @@
 import { motion } from "framer-motion"
 import { siteContent } from "@/lib/content"
 
+const EASE_OUT_CUBIC_BEZIER: [number, number, number, number] = [0.16, 1, 0.3, 1]
+
 export function Skills() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -14,7 +16,7 @@ export function Skills() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
-    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: EASE_OUT_CUBIC_BEZIER } },
   }
 
   const LiquidPill = ({ title, highlight = false }: { title: string, highlight?: boolean }) => (
