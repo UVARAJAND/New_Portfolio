@@ -73,7 +73,7 @@ export function Hero() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-[15vw] md:text-[120px] lg:text-[160px] font-black font-display tracking-tighter leading-[0.8] mb-6 select-none"
+          className="text-[15vw] md:text-[120px] lg:text-[160px] font-black font-display tracking-tighter leading-[0.8] mb-6"
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/40">
             {siteContent.hero.name}

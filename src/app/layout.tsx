@@ -21,6 +21,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Uvarajan D | Backend Developer Portfolio",
   description: "Backend developer portfolio showcasing scalable APIs, system design, and AI-integrated engineering projects.",
+  icons: {
+    icon: '/u_logo.jpeg',
+  },
   verification: {
     google: "W7b1naU2oIvEukVxmm_lY8kwc-3gfvk8r86DjF8mgtU",
     },
