@@ -12,13 +12,13 @@ export function Achievements() {
   }
 
   return (
-    <section className="relative w-full py-[100px] md:py-[150px] scroll-mt-24 overflow-hidden flex flex-col items-center">
-      
-      {/* Intense Core Glows */}
-      <div className="absolute top-[50%] left-[80%] -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] bg-achievement/10 blur-[180px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
+    <section id="achievements" className="relative w-full min-h-screen py-[100px] md:py-[150px] scroll-mt-24 overflow-hidden flex flex-col items-center justify-center">
 
-      {/* Layer 2: Infinite Marquee */}
-      <div className="absolute top-[30%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.03]">
+      {/* Subtle Amber Section Tint */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.02),transparent_70%)] pointer-events-none -z-20" />
+
+      {/* Layer 2: Infinite Marquee (softened) */}
+      <div className="absolute top-[30%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.01]">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 50, ease: "linear", repeat: Infinity }}
@@ -26,7 +26,7 @@ export function Achievements() {
         >
           {Array.from({ length: 4 }).map((_, i) => (
             <span key={i} className="text-[18vw] font-black font-display tracking-tighter mx-8 uppercase">
-              ACHIEVEMENTS • 
+              ACHIEVEMENTS •
             </span>
           ))}
         </motion.div>
@@ -43,7 +43,7 @@ export function Achievements() {
         className="w-full max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col items-center text-center"
       >
         <motion.div variants={sectionVariants} className="mb-20 flex flex-col items-center">
-          <h2 className="text-[32px] sm:text-[46px] md:text-[70px] lg:text-[100px] font-black font-display tracking-tighter leading-[0.9] mb-6 text-white">
+          <h2 id="achievements-heading" className="text-[32px] sm:text-[46px] md:text-[70px] lg:text-[100px] font-black font-display tracking-tighter leading-[0.9] mb-6 text-white">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-achievement/80 via-white to-white">
               ACHIEVEMENTS.
             </span>
@@ -54,12 +54,12 @@ export function Achievements() {
           {siteContent.achievements.items.map((item, i) => (
             <motion.div key={i} variants={sectionVariants} className="group relative w-full text-left">
               <div className="absolute -inset-2 bg-gradient-to-r from-achievement/20 to-transparent rounded-[32px] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
-              
+
               <div className="relative z-10 bg-white/[0.02] backdrop-blur-3xl border border-white/5 group-hover:border-white/20 rounded-[32px] md:rounded-full p-4 md:p-6 md:px-10 transition-all duration-500 hover:bg-white/[0.05] shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden">
-                
+
                 {/* Visual marker */}
                 <div className="hidden md:flex absolute top-0 left-0 h-full w-[4px] bg-gradient-to-b from-transparent via-achievement/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 <div className="flex flex-col gap-2 md:w-[70%] z-10">
                   <h3 className="text-[20px] md:text-[28px] font-display font-black text-white leading-tight tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/50 transition-all">
                     {item.title}
@@ -77,12 +77,15 @@ export function Achievements() {
                     {item.rank}
                   </span>
                 </div>
-                
+
               </div>
             </motion.div>
           ))}
         </div>
       </motion.div>
+
+      {/* Section Divider */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
     </section>
   )
 }

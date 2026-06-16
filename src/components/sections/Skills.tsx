@@ -27,13 +27,12 @@ export function Skills() {
 
   return (
     <section id="skills" className="relative w-full min-h-screen py-[100px] md:py-[150px] scroll-mt-24 overflow-hidden flex flex-col items-center justify-center">
-      
-      {/* Intense Core Glows */}
-      <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] bg-accent-primary/15 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
-      <div className="absolute bottom-[20%] left-[20%] w-[60vw] h-[60vw] max-w-[800px] bg-[#A78BFA]/10 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
 
-      {/* Layer 2: Infinite Marquee */}
-      <div className="absolute top-[40%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.03]">
+      {/* Subtle Cyan Section Tint */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.025),transparent_70%)] pointer-events-none -z-20" />
+
+      {/* Layer 2: Infinite Marquee (softened) */}
+      <div className="absolute top-[40%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.01]">
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 60, ease: "linear", repeat: Infinity }}
@@ -41,7 +40,7 @@ export function Skills() {
         >
           {Array.from({ length: 4 }).map((_, i) => (
             <span key={i} className="text-[18vw] font-black font-display tracking-tighter mx-8 uppercase">
-              TECH STACK • 
+              TECH STACK •
             </span>
           ))}
         </motion.div>
@@ -55,8 +54,8 @@ export function Skills() {
         className="w-full max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col items-center justify-center text-center"
       >
         <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-block text-[12px] md:text-[14px] font-mono text-accent-primary uppercase tracking-[0.2em] mb-4 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.02)]">
-             {siteContent.skills.sectionTag}
+          <span id="toolkit-tag" className="inline-block text-[12px] md:text-[14px] font-mono text-accent-primary uppercase tracking-[0.2em] mb-4 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.02)]">
+            {siteContent.skills.sectionTag}
           </span>
         </motion.div>
 
@@ -72,13 +71,13 @@ export function Skills() {
 
         {/* Floating Organic Clusters */}
         <div className="flex flex-col gap-16 md:gap-24 w-full">
-          
+
           <motion.div variants={itemVariants} className="flex flex-col items-center gap-6 md:gap-10">
             <span className="text-[12px] sm:text-[16px] md:text-[20px] font-display font-black text-white/30 uppercase tracking-[0.3em] text-center px-4">Backend Architecture & Databases</span>
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 w-full max-w-[1200px]">
               {[
-                ...(siteContent.skills.categories.backend || []), 
-                ...(siteContent.skills.categories.databases || []), 
+                ...(siteContent.skills.categories.backend || []),
+                ...(siteContent.skills.categories.databases || []),
                 ...(siteContent.skills.categories.orm || [])
               ].map(skill => <LiquidPill key={skill} title={skill} highlight={(siteContent.skills.categories.backend || []).includes(skill)} />)}
             </div>
@@ -88,7 +87,7 @@ export function Skills() {
             <span className="text-[12px] sm:text-[16px] md:text-[20px] font-display font-black text-white/30 uppercase tracking-[0.3em] text-center px-4">Core Languages & Frontend</span>
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 w-full max-w-[1200px]">
               {[
-                ...(siteContent.skills.categories.languages || []), 
+                ...(siteContent.skills.categories.languages || []),
                 ...(siteContent.skills.categories.frontend || [])
               ].map(skill => <LiquidPill key={skill} title={skill} />)}
             </div>
@@ -98,7 +97,7 @@ export function Skills() {
             <span className="text-[12px] sm:text-[16px] md:text-[20px] font-display font-black text-white/30 uppercase tracking-[0.3em] text-center px-4">DevOps & Tooling</span>
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 w-full max-w-[1000px]">
               {[
-                ...(siteContent.skills.categories.devops_tools || []), 
+                ...(siteContent.skills.categories.devops_tools || []),
                 ...(siteContent.skills.categories.developer_tools || [])
               ].map(skill => <LiquidPill key={skill} title={skill} />)}
             </div>
@@ -107,6 +106,9 @@ export function Skills() {
         </div>
 
       </motion.div>
+
+      {/* Section Divider */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
     </section>
   )
 }

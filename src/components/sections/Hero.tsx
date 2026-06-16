@@ -36,12 +36,8 @@ export function Hero() {
   return (
     <section id="home" className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
       
-      {/* Intense Core Glow Layer */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[1000px] bg-accent-primary/20 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
-      <div className="absolute top-[40%] left-[60%] -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[800px] bg-link/15 blur-[120px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
-
-      {/* Layer 2: Infinite Marquee */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.03]">
+      {/* Layer 2: Infinite Marquee (softened) */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.01]">
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 50, ease: "linear", repeat: Infinity }}
@@ -99,41 +95,45 @@ export function Hero() {
         </motion.p>
 
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 items-center w-full max-w-[600px] justify-center text-center">
-          {primaryHref && (
-            <a
-              href={primaryHref}
-              className="group relative flex items-center justify-center gap-4 w-full sm:w-auto px-8 py-5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 hover:border-accent-primary/50 text-white font-sans font-bold text-[16px] transition-all duration-500 overflow-hidden shadow-2xl hover:bg-white/[0.05]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="relative z-10 tracking-wider uppercase">{siteContent.hero.cta.primary}</span>
-              <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-            </a>
-          )}
-          
-          {secondaryHref && secondaryHref !== "#" && (
-            <a
-              href={secondaryHref}
-              target="_blank"
-              rel="noreferrer"
-              className="px-8 py-5 rounded-full border border-white/10 text-white/60 font-sans font-medium text-[16px] hover:text-white hover:bg-white/5 transition-all duration-300 tracking-wider uppercase"
-            >
-              {siteContent.hero.cta.secondary}
-            </a>
-          )}
-        </motion.div>
-
+        {primaryHref && (
+          <a
+            href={primaryHref}
+            id="hero-cta"
+            className="group relative flex items-center justify-center gap-4 w-full sm:w-auto px-8 py-5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 hover:border-accent-primary/50 text-white font-sans font-bold text-[16px] transition-all duration-500 overflow-hidden shadow-2xl hover:bg-white/[0.05]"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <span className="relative z-10 tracking-wider uppercase">{siteContent.hero.cta.primary}</span>
+            <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+          </a>
+        )}
+        
+        {secondaryHref && secondaryHref !== "#" && (
+          <a
+            href={secondaryHref}
+            target="_blank"
+            rel="noreferrer"
+            className="px-8 py-5 rounded-full border border-white/10 text-white/60 font-sans font-medium text-[16px] hover:text-white hover:bg-white/5 transition-all duration-300 tracking-wider uppercase"
+          >
+            {siteContent.hero.cta.secondary}
+          </a>
+        )}
       </motion.div>
 
-      {/* Floating chevron */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 z-10 flex flex-col items-center gap-2"
-      >
-        <span className="text-[10px] font-mono text-white/30 uppercase tracking-[0.3em]"></span>
+    </motion.div>
+
+    {/* Floating chevron */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.5, duration: 1 }}
+      id="hero-chevron"
+      className="absolute bottom-10 z-10 flex flex-col items-center gap-2"
+    >
         <ChevronDown size={24} className="text-white/30 animate-bounce" />
       </motion.div>
+
+      {/* Section Divider */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
     </section>
   )
 }

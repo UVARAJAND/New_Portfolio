@@ -72,14 +72,14 @@ export function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: isScrolled ? 0 : -100, opacity: isScrolled ? 1 : 0 }}
         transition={{ duration: 0.5, ease: "easeOut" as const }}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between bg-black/20 border border-white/5 backdrop-blur-3xl rounded-[100px] p-2 pr-4 shadow-[0_20px_80px_rgba(124,58,237,0.25)] w-max max-w-[90vw] transition-all duration-500 overflow-hidden group/nav"
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between bg-black/40 border border-white/5 backdrop-blur-3xl rounded-[100px] p-2 pr-4 shadow-[0_8px_32px_rgba(0,0,0,0.5)] w-max max-w-[90vw] transition-all duration-500 overflow-hidden group/nav"
       >
-        {/* Liquid internal glow */}
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/20 via-link/10 to-transparent opacity-0 group-hover/nav:opacity-100 blur-[20px] pointer-events-none transition-opacity duration-700" />
+        {/* Liquid internal glow (softened) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/10 via-link/5 to-transparent opacity-0 group-hover/nav:opacity-30 blur-[20px] pointer-events-none transition-opacity duration-700" />
 
         <Link href="#home" className="relative z-10 text-[18px] font-black font-display tracking-tight mr-6 md:mr-8 ml-4 flex items-center gap-2">
-          {/* A tiny glowing orb next to logo */}
-          <span className="w-2 h-2 rounded-full bg-accent-primary shadow-[0_0_12px_rgba(124,58,237,0.8)] animate-pulse" />
+          {/* A tiny indicator orb next to logo */}
+          <span className="w-2 h-2 rounded-full bg-accent-primary/80 animate-pulse" />
           <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60">
             {siteContent.navbar.logo}
           </span>
@@ -116,7 +116,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center relative z-10">
           <a
             href="mailto:uvarajandev@gmail.com"
-            className="px-[24px] py-[10px] rounded-[32px] bg-accent-primary/80 text-white font-sans font-medium text-[14px] backdrop-blur-md border border-accent-primary hover:bg-accent-primary hover:scale-[1.03] transition-all shadow-[0_0_24px_rgba(124,58,237,0.5)]"
+            className="px-[24px] py-[10px] rounded-[32px] bg-accent-primary/95 text-white font-sans font-medium text-[14px] backdrop-blur-md border border-white/10 hover:bg-accent-primary hover:border-accent-primary/50 hover:scale-[1.03] transition-all shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
           >
             {siteContent.navbar.cta}
           </a>

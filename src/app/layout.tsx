@@ -59,7 +59,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body suppressHydrationWarning className="min-h-screen overflow-x-hidden flex flex-col font-inter text-body bg-[#0A0A0F] bg-[radial-gradient(circle_at_top_left,_rgba(124,58,237,0.1),_transparent_40%),_radial-gradient(circle_at_bottom_right,_rgba(56,189,248,0.05),_transparent_50%)] text-body-text">
+      <body suppressHydrationWarning className="min-h-screen overflow-x-hidden flex flex-col font-inter text-body bg-[#030303] text-body-text">
         <SmoothScrolling>{children}</SmoothScrolling>
       </body>
     </html>

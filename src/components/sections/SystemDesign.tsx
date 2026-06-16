@@ -12,14 +12,13 @@ export function SystemDesign() {
   }
 
   return (
-    <section className="relative w-full min-h-screen py-[100px] md:py-[150px] scroll-mt-24 overflow-hidden flex flex-col items-center">
-      
-      {/* Intense Core Glows */}
-      <div className="absolute top-[20%] right-[10%] -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] bg-link/10 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
-      <div className="absolute top-[80%] left-[10%] -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[700px] bg-accent-primary/10 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
+    <section id="system-design" className="relative w-full min-h-screen py-[100px] md:py-[150px] scroll-mt-24 overflow-hidden flex flex-col items-center justify-center">
 
-      {/* Layer 2: Infinite Marquee */}
-      <div className="absolute top-[20%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.03]">
+      {/* Subtle Blue Section Tint */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.02),transparent_70%)] pointer-events-none -z-20" />
+
+      {/* Layer 2: Infinite Marquee (softened) */}
+      <div className="absolute top-[20%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.01]">
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ duration: 60, ease: "linear", repeat: Infinity }}
@@ -27,7 +26,7 @@ export function SystemDesign() {
         >
           {Array.from({ length: 4 }).map((_, i) => (
             <span key={i} className="text-[18vw] font-black font-display tracking-tighter mx-8 uppercase">
-              ARCHITECTURE • 
+              ARCHITECTURE •
             </span>
           ))}
         </motion.div>
@@ -44,7 +43,7 @@ export function SystemDesign() {
         className="w-full max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col items-center text-center"
       >
         <motion.div variants={sectionVariants} className="mb-20 flex flex-col items-center">
-          <h2 className="text-[36px] sm:text-[50px] md:text-[80px] lg:text-[110px] font-black font-display tracking-tighter leading-[0.9] mb-6 text-white">
+          <h2 id="systems-heading" className="text-[36px] sm:text-[50px] md:text-[80px] lg:text-[110px] font-black font-display tracking-tighter leading-[0.9] mb-6 text-white">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary via-white to-white">
               SYSTEMS.
             </span>
@@ -59,7 +58,7 @@ export function SystemDesign() {
             <motion.div key={i} variants={sectionVariants} className="group relative w-full text-left">
               {/* Intense Hover Glow Layer */}
               <div className="absolute -inset-4 bg-gradient-to-r from-accent-primary/20 to-link/10 rounded-[48px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
-              
+
               <div className="relative z-10 bg-white/[0.02] backdrop-blur-3xl border border-white/5 group-hover:border-white/20 rounded-[40px] p-8 md:p-12 transition-all duration-500 hover:bg-white/[0.05] shadow-2xl flex flex-col items-start">
                 <span className="inline-block px-4 py-2 rounded-full border border-white/10 bg-white/5 font-mono text-[12px] md:text-[14px] text-white/70 tracking-widest uppercase mb-6 group-hover:border-accent-primary/50 group-hover:bg-accent-primary/10 transition-colors">
                   {design.tag}
@@ -84,6 +83,9 @@ export function SystemDesign() {
           ))}
         </div>
       </motion.div>
+
+      {/* Section Divider */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
     </section>
   )
 }

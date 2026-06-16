@@ -20,12 +20,11 @@ export function About() {
   return (
     <section id="about" className="relative w-full min-h-screen py-[100px] md:py-[150px] scroll-mt-24 overflow-hidden flex flex-col items-center justify-center">
 
-      {/* Layer 1: Core Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] bg-accent-primary/10 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
-      <div className="absolute top-[60%] left-[30%] -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[700px] bg-link/10 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
+      {/* Subtle Violet Section Tint */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.02),transparent_70%)] pointer-events-none -z-20" />
 
-      {/* Layer 2: Infinite Marquee */}
-      <div className="absolute top-[30%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.03]">
+      {/* Layer 2: Infinite Marquee (softened) */}
+      <div className="absolute top-[30%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.01]">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 45, ease: "linear", repeat: Infinity }}
@@ -33,7 +32,7 @@ export function About() {
         >
           {Array.from({ length: 4 }).map((_, i) => (
             <span key={i} className="text-[18vw] font-black font-display tracking-tighter mx-8 uppercase">
-              ABOUT ME • 
+              ABOUT ME •
             </span>
           ))}
         </motion.div>
@@ -47,12 +46,12 @@ export function About() {
         className="w-full max-w-[1200px] mx-auto px-6 relative z-10 flex flex-col items-center justify-center text-center"
       >
         <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-block text-[12px] md:text-[14px] font-mono text-accent-primary uppercase tracking-[0.2em] mb-4 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.02)]">
+          <span id="about-me-tag" className="inline-block text-[12px] md:text-[14px] font-mono text-accent-primary uppercase tracking-[0.2em] mb-4 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.02)]">
             {siteContent.about.sectionTag}
           </span>
         </motion.div>
 
-        <motion.h3 variants={itemVariants} className="text-[36px] sm:text-[50px] md:text-[80px] lg:text-[110px] font-black font-display text-white mb-10 tracking-tighter leading-[0.9]">
+        <motion.h3 id="about-me-title" variants={itemVariants} className="text-[36px] sm:text-[50px] md:text-[80px] lg:text-[110px] font-black font-display text-white mb-10 tracking-tighter leading-[0.9]">
           {siteContent.about.heading.split(' ').map((word, i) => (
             <span key={i} className={i % 2 !== 0 ? "text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-link" : ""}>
               {word}{" "}
@@ -62,12 +61,12 @@ export function About() {
 
         {/* Central Core: Image & Floating Stats */}
         <motion.div variants={itemVariants} className="relative w-full max-w-[800px] flex justify-center mb-20">
-          
+
           <div className="w-[280px] h-[340px] md:w-[320px] md:h-[420px] relative flex justify-center items-center">
             {/* Background Offset Panels */}
             <div className="absolute inset-0 bg-accent-primary/20 transform rotate-[6deg] rounded-[32px] md:rounded-[40px] border border-accent-primary/30 z-0 opacity-70 group-hover:rotate-[8deg] transition-transform duration-500" />
             <div className="absolute inset-0 bg-link/20 transform -rotate-[4deg] rounded-[32px] md:rounded-[40px] border border-link/30 z-0 opacity-70 group-hover:-rotate-[6deg] transition-transform duration-500" />
-            
+
             {/* Main Photo Container */}
             <div className="absolute inset-0 bg-[#111] rounded-[32px] md:rounded-[40px] border border-white/20 shadow-[-10px_20px_60px_rgba(0,0,0,0.5)] overflow-hidden group z-10 hover:-translate-y-2 transition-transform duration-500">
               <Image
@@ -114,8 +113,10 @@ export function About() {
             </div>
           ))}
         </motion.div>
-
       </motion.div>
+
+      {/* Section Divider */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
     </section>
   )
 }

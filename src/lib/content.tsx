@@ -357,8 +357,8 @@ export const siteContent = {
       // { icon: FaTelegram, href: "https://t.me/uvarajand", label: "Telegram" },
       { icon: FaDiscord, href: "https://discord.com/users/1084096662412210376", label: "Discord" },
     ],
-    // resumeText: "Download Resume PDF",
-    // resumeHref: "",
+    resumeText: "Download Resume",
+    resumeHref: "https://drive.google.com/file/d/1kz3lwnRWOFt6p91jIQt4uEAu3uRxcz0j/view?usp=sharing",
   },
 
   navbar: {

@@ -49,10 +49,10 @@ export function Projects() {
       aria-label={`Open project details for ${project.title}`}
     >
       {/* Intense Hover Glow Layer */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-accent-primary/30 to-link/20 rounded-[48px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
+      <div className="absolute -inset-2 bg-gradient-to-r from-accent-primary/30 to-link/20 rounded-[48px] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
 
       {/* Floating Pill Container */}
-      <div className="relative z-10 flex flex-col h-full overflow-hidden bg-white/[0.02] backdrop-blur-3xl border border-white/5 group-hover:border-white/20 rounded-[40px] p-4 transition-all duration-500 ease-out shadow-xl hover:bg-white/[0.05]">
+      <div className="relative z-10 flex flex-col h-full overflow-visible bg-white/[0.02] backdrop-blur-3xl border border-white/5 group-hover:border-white/20 rounded-[40px] p-4 transition-all duration-500 ease-out shadow-xl hover:bg-white/[0.05]">
 
         {/* Thumbnail Preview */}
         <div className="w-full h-[240px] md:h-[280px] relative overflow-hidden bg-white/5 rounded-[32px] shrink-0 mb-6 group-hover:border-white/10 transition-colors duration-500">
@@ -66,7 +66,7 @@ export function Projects() {
           />
 
           <div className="absolute top-5 left-5 bg-black/40 backdrop-blur-xl border border-white/10 text-white font-mono font-medium text-[11px] px-4 py-2 rounded-full z-10 tracking-widest uppercase">
-             {project.category}
+            {project.category}
           </div>
         </div>
 
@@ -111,13 +111,12 @@ export function Projects() {
   return (
     <>
       <section id="projects" className="relative w-full min-h-screen py-[100px] md:py-[150px] scroll-mt-24 overflow-hidden flex flex-col items-center">
-        
-        {/* Layer 1: Intense Core Glows */}
-        <div className="absolute top-[20%] left-[80%] -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] bg-accent-primary/10 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
-        <div className="absolute top-[80%] left-[20%] -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[700px] bg-link/10 blur-[150px] pointer-events-none -z-20 rounded-full mix-blend-screen" />
 
-        {/* Layer 2: Infinite Marquee */}
-        <div className="absolute top-[20%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.03]">
+        {/* Subtle Purple Section Tint */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.02),transparent_70%)] pointer-events-none -z-20" />
+
+        {/* Layer 2: Infinite Marquee (softened) */}
+        <div className="absolute top-[20%] left-0 -translate-y-1/2 w-full -z-10 overflow-hidden pointer-events-none opacity-[0.01]">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 55, ease: "linear", repeat: Infinity }}
@@ -125,33 +124,33 @@ export function Projects() {
           >
             {Array.from({ length: 4 }).map((_, i) => (
               <span key={i} className="text-[18vw] font-black font-display tracking-tighter mx-8 uppercase">
-                WORKS • 
+                WORKS •
               </span>
             ))}
           </motion.div>
         </div>
 
         <div className="w-full max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-50px" }}
-            variants={sectionVariants} 
+            variants={sectionVariants}
             className="mb-20 flex flex-col items-center"
           >
-            <h2 className="text-[46px] sm:text-[60px] md:text-[90px] lg:text-[120px] font-black font-display tracking-tighter leading-[0.9] mb-6 text-white">
+            <h2 id="projects-heading" className="text-[46px] sm:text-[60px] md:text-[90px] lg:text-[120px] font-black font-display tracking-tighter leading-[0.9] mb-6 text-white">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary via-white to-white">
                 WORKS.
               </span>
             </h2>
             <p className="text-[18px] md:text-[22px] font-sans text-white/50 max-w-[600px] leading-relaxed">
-               {siteContent.projects.description}
+              {siteContent.projects.description}
             </p>
           </motion.div>
 
-          <div className="w-full">
+          <div className="w-full px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full">
-               {siteContent.projects.featured.map((project, i) => (
+              {siteContent.projects.featured.map((project, i) => (
                 <ProjectCard key={`feat-${i}`} project={project} index={i} />
               ))}
             </div>
@@ -164,9 +163,9 @@ export function Projects() {
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.8, ease: EASE_OUT_CUBIC_BEZIER }}
-                className="w-full overflow-hidden"
+                className="w-full overflow-visible"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 pb-4 w-full pt-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 pb-4 w-full pt-16 px-4 md:px-6">
                   {siteContent.projects.hidden.map((project, i) => (
                     <ProjectCard key={`hid-${i}`} project={project} index={i} />
                   ))}
@@ -194,6 +193,8 @@ export function Projects() {
           </motion.div>
         </div>
 
+        {/* Section Divider */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
       </section>
 
       <ProjectModal
