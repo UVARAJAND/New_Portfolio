@@ -343,7 +343,7 @@ export const siteContent = {
     heading: "Let's build something",
     headingHighlight: "great together.",
     description:
-      "I'm actively looking for backend and system design roles and open to immediate relocation to Luxembourg. Whether it's a full-time position, freelance project, or just a conversation — drop me a message.",
+      "I'm actively looking for backend and system design roles and open to immediate relocation. Whether it's a full-time position, freelance project, or just a conversation — drop me a message.",
     emailLabel: "EMAIL ME AT",
     emailValue: "uvarajandev@gmail.com",
     emailLink: "mailto:uvarajandev@gmail.com",
