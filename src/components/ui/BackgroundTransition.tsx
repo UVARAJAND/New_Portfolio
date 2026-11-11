@@ -10,6 +10,7 @@ interface SectionBackground {
 const SECTIONS: SectionBackground[] = [
   { id: "home", bg: "#050508" },
   { id: "about", bg: "#0A0813" },
+  { id: "experience", bg: "#07130F" },
   { id: "skills", bg: "#061018" },
   { id: "system-design", bg: "#08111A" },
   { id: "projects", bg: "#100816" },

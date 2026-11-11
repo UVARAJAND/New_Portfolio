@@ -4,16 +4,10 @@ import React, { useEffect, useState, useRef } from "react"
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from "framer-motion"
 
 export function JourneyLine() {
-  const [mounted, setMounted] = useState(false)
   const [points, setPoints] = useState<{ x: number; y: number }[]>([])
   const [activeNodeIndex, setActiveNodeIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
-  const [isTablet, setIsTablet] = useState(false)
   const svgRef = useRef<SVGSVGElement>(null)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   // Accessibility check for user motion preferences
   const shouldReduceMotion = useReducedMotion()
@@ -28,9 +22,8 @@ export function JourneyLine() {
       const tabletMode = width >= 768 && width < 1200
 
       setIsMobile(mobileMode)
-      setIsTablet(tabletMode)
 
-      const sectionIds = ["about", "skills", "system-design", "projects", "achievements", "contact"]
+      const sectionIds = ["about", "experience", "skills", "system-design", "projects", "achievements", "contact"]
       const coords = sectionIds.map((id) => {
         const el = document.getElementById(id)
         if (!el) return null
@@ -45,6 +38,8 @@ export function JourneyLine() {
         let targetEl = null
         if (id === "about") {
           targetEl = document.getElementById("about-me-tag")
+        } else if (id === "experience") {
+          targetEl = document.getElementById("experience-heading")
         } else if (id === "skills") {
           targetEl = document.getElementById("toolkit-tag")
         } else if (id === "system-design") {
@@ -74,27 +69,31 @@ export function JourneyLine() {
             // Tablet: Narrower amplitude offsets to prevent grid card collisions
             if (id === "about") {
               x = rect.left + rect.width * 0.18
-            } else if (id === "skills") {
+            } else if (id === "experience") {
               x = rect.left + rect.width * 0.82
-            } else if (id === "system-design") {
-              x = rect.left + rect.width * 0.20
-            } else if (id === "projects") {
-              x = rect.left + rect.width * 0.80
-            } else if (id === "achievements") {
+            } else if (id === "skills") {
               x = rect.left + rect.width * 0.18
+            } else if (id === "system-design") {
+              x = rect.left + rect.width * 0.82
+            } else if (id === "projects") {
+              x = rect.left + rect.width * 0.18
+            } else if (id === "achievements") {
+              x = rect.left + rect.width * 0.82
             }
           } else {
             // Desktop: Full asymmetrical canvas weaving
             if (id === "about") {
               x = rect.left + Math.max(100, rect.width * 0.12)
-            } else if (id === "skills") {
+            } else if (id === "experience") {
               x = rect.left + Math.min(rect.width - 100, rect.width * 0.88)
-            } else if (id === "system-design") {
-              x = rect.left + Math.max(120, rect.width * 0.15)
-            } else if (id === "projects") {
-              x = rect.left + Math.min(rect.width - 120, rect.width * 0.85)
-            } else if (id === "achievements") {
+            } else if (id === "skills") {
               x = rect.left + Math.max(100, rect.width * 0.12)
+            } else if (id === "system-design") {
+              x = rect.left + Math.min(rect.width - 100, rect.width * 0.88)
+            } else if (id === "projects") {
+              x = rect.left + Math.max(100, rect.width * 0.12)
+            } else if (id === "achievements") {
+              x = rect.left + Math.min(rect.width - 100, rect.width * 0.88)
             }
           }
         }
@@ -163,7 +162,7 @@ export function JourneyLine() {
   // Disable dynamic path drawing animations if user requests reduced motion
   const pathLength = shouldReduceMotion ? 1 : scrollPathLength
 
-  if (!mounted || points.length === 0 || isMobile) return null
+  if (points.length === 0 || isMobile) return null
 
   // Path generator strings for our consolidated hybrid design
   let activePath = ""
@@ -221,21 +220,21 @@ export function JourneyLine() {
         <defs>
           {/* Dynamic, multi-stop section-color gradients (Dim background, soft active tracks) */}
           <linearGradient id="section-gradient-dim" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.05" /> {/* Hero: Violet */}
-            <stop offset="16%" stopColor="#8B5CF6" stopOpacity="0.05" /> {/* About: Violet */}
+            <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.05" /> {/* About: Violet */}
+            <stop offset="17%" stopColor="#10B981" stopOpacity="0.05" /> {/* Experience: Emerald */}
             <stop offset="33%" stopColor="#06B6D4" stopOpacity="0.05" /> {/* Skills: Cyan */}
             <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.05" /> {/* System Design: Blue */}
-            <stop offset="66%" stopColor="#A855F7" stopOpacity="0.05" /> {/* Projects: Purple */}
+            <stop offset="67%" stopColor="#A855F7" stopOpacity="0.05" /> {/* Projects: Purple */}
             <stop offset="83%" stopColor="#F59E0B" stopOpacity="0.05" /> {/* Achievements: Amber */}
             <stop offset="100%" stopColor="#EC4899" stopOpacity="0.05" /> {/* Contact: Pink */}
           </linearGradient>
 
           <linearGradient id="section-gradient-bright" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.45" />
-            <stop offset="16%" stopColor="#8B5CF6" stopOpacity="0.5" />
+            <stop offset="17%" stopColor="#10B981" stopOpacity="0.5" />
             <stop offset="33%" stopColor="#06B6D4" stopOpacity="0.5" />
             <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.5" />
-            <stop offset="66%" stopColor="#A855F7" stopOpacity="0.5" />
+            <stop offset="67%" stopColor="#A855F7" stopOpacity="0.5" />
             <stop offset="83%" stopColor="#F59E0B" stopOpacity="0.5" />
             <stop offset="100%" stopColor="#EC4899" stopOpacity="0.45" />
           </linearGradient>

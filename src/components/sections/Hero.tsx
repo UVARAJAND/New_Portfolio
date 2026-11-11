@@ -10,14 +10,6 @@ export function Hero() {
   const primaryHref = siteContent.hero.cta.primaryHref
   const secondaryHref = siteContent.hero.cta.secondaryHref
 
-  const scrollToHash = (href: string) => {
-    const id = href.replace("#", "")
-    const section = document.getElementById(id)
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
-  }
-
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -78,11 +70,12 @@ export function Hero() {
 
         <motion.h2
           variants={itemVariants}
-          className="text-[4vw] md:text-[24px] lg:text-[32px] font-bold font-sans text-white/50 tracking-[0.2em] md:tracking-[0.4em] uppercase mb-12 flex flex-col md:flex-row items-center gap-2 md:gap-6"
+          className="mb-12 flex max-w-[1000px] flex-col items-center gap-3 md:gap-4"
         >
-          <span className="text-white/80">{siteContent.hero.role}</span>
-          <span className="hidden md:block opacity-30">&times;</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-link">
+          <span className="text-balance text-[22px] sm:text-[28px] md:text-[30px] lg:text-[36px] font-bold font-sans tracking-[0.04em] md:tracking-[0.08em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-accent-hover via-white to-link leading-tight">
+            {siteContent.hero.role}
+          </span>
+          <span className="text-[11px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-medium font-mono text-white/45 tracking-[0.16em] md:tracking-[0.28em] uppercase">
             {siteContent.hero.specialty}
           </span>
         </motion.h2>

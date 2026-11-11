@@ -86,7 +86,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-2 mr-6 relative z-10">
+        <nav className="hidden lg:flex items-center gap-1.5 mr-4 relative z-10">
           {siteContent.navbar.links.map((link) => {
             const isActive = activeSection === link
             return (
@@ -97,7 +97,7 @@ export function Navbar() {
                   e.preventDefault()
                   scrollToSection(link.toLowerCase())
                 }}
-                className={`relative px-5 py-2 text-[14px] font-medium font-sans transition-colors group/link rounded-[32px] overflow-hidden ${
+                className={`relative px-4 py-2 text-[14px] font-medium font-sans transition-colors group/link rounded-[32px] overflow-hidden ${
                   isActive ? "text-white" : "text-white/60 hover:text-white"
                 }`}
               >
@@ -113,7 +113,7 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden md:flex items-center relative z-10">
+        <div className="hidden lg:flex items-center relative z-10">
           <a
             href="mailto:uvarajandev@gmail.com"
             className="px-[24px] py-[10px] rounded-[32px] bg-accent-primary/95 text-white font-sans font-medium text-[14px] backdrop-blur-md border border-white/10 hover:bg-accent-primary hover:border-accent-primary/50 hover:scale-[1.03] transition-all shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
@@ -124,7 +124,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white/80 flex items-center ml-2 mr-2 hover:text-white transition-colors relative z-10"
+          className="lg:hidden text-white/80 flex items-center ml-2 mr-2 hover:text-white transition-colors relative z-10"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
@@ -139,7 +139,7 @@ export function Navbar() {
           initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
           animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
           exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-          className="fixed inset-0 z-40 bg-[#0A0A0F]/80 flex flex-col items-center justify-center gap-8 md:hidden"
+          className="fixed inset-0 z-40 bg-[#0A0A0F]/80 flex flex-col items-center justify-center gap-8 lg:hidden"
         >
           {/* Background mobile blobs */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
@@ -152,7 +152,7 @@ export function Navbar() {
               <Link
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="text-[28px] font-bold font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 transition-all hover:scale-110"
+                className="text-[24px] sm:text-[28px] font-bold font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 transition-all hover:scale-110"
                 onClick={(e) => {
                   e.preventDefault()
                   scrollToSection(link.toLowerCase())

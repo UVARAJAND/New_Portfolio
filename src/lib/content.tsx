@@ -1,5 +1,22 @@
-import { FaGithub, FaLinkedin, FaTelegram, FaDiscord } from "react-icons/fa6"
-import { Mail } from "lucide-react"
+import { FaGithub, FaLinkedin, FaDiscord } from "react-icons/fa6"
+
+export interface ExperienceItem {
+  role: string
+  company: string
+  logo?: string
+  type: string
+  location: string
+  start: string
+  end: string
+  current?: boolean
+  summary: string
+  highlights: string[]
+  tech?: string[]
+  document?: {
+    label: string
+    url: string
+  }
+}
 
 export interface Project {
   category: string
@@ -17,11 +34,11 @@ export interface Project {
 export const siteContent = {
   hero: {
     name: "UVARAJAN D",
-    role: "Backend Developer",
-    specialty: "System Design",
+    role: "AI Automation & Integration Engineer",
+    specialty: "Backend Developer | System Design",
     badge: "// available for work",
     valueProp:
-      "I build scalable APIs, AI-integrated backends, and well-architected systems engineered for performance, built to last.",
+      "I build intelligent automation, scalable APIs, and AI-integrated backends engineered for performance, built to last.",
     cta: {
       primary: "View My Work",
       secondary: "Download Resume",
@@ -34,7 +51,7 @@ export const siteContent = {
     sectionTag: "About Me",
     heading: "Building backends that scale, systems that last",
     paragraphs: [
-      "I'm a Backend Developer from Cuddalore, India, currently pursuing my B.Tech in Computer Science Engineering at Manakula Vinayagar Institute of Technology, Puducherry (CGPA: 8.11 / 10). My passion lives at the intersection of system design, Python architecture, and AI integration — building backends that are not just functional, but scalable and maintainable.",
+      "I'm an AI Automation & Integration Engineer and Backend Developer from Cuddalore, India, with a B.Tech in Computer Science Engineering from Manakula Vinayagar Institute of Technology, Puducherry (CGPA: 8.11 / 10). My passion lives at the intersection of system design, Python architecture, and AI integration — building backends and workflows that are not just functional, but scalable and maintainable.",
       "I've engineered asynchronous APIs with FastAPI, designed normalised database schemas, integrated deep learning models into server-side logic, and competed in national and global hackathons where I've consistently ranked at the top. I'm open to immediate relocation.",
     ],
     stats: {
@@ -49,6 +66,63 @@ export const siteContent = {
       { label: "Status", value: "Open to Relocation" },
     ],
     profileImage: "/Uvarajan-image.png",
+  },
+
+  experience: {
+    sectionTag: "Career",
+    heading: "Experience",
+    description:
+      "Roles where I've shipped automation, integrations, and backend systems — turning manual processes into reliable workflows.",
+    items: [
+      {
+        role: "Junior Workflow Engineer",
+        company: "MyDBOps",
+        logo: "/mydbops-logo.svg",
+        type: "Full-time",
+        location: "Remote",
+        start: "Jun 2026",
+        end: "Oct 2026",
+        current: false,
+        document: {
+          label: "Experience & Relieving Letter",
+          url: "https://drive.google.com/file/d/1nPHo1VCpuiAe_oeFBhr7QQjy_GJqs-iV/view?usp=sharing",
+        },
+        summary:
+          "Workflow engineer at a managed database services company, working across MySQL, PostgreSQL, MongoDB and TiDB environments.",
+        highlights: [
+          "Created multiple n8n workflows for automatic ticket creation, alerting and SLA tracking, reducing manual effort for support and database operations teams",
+          "Built multiple internal tools and web applications to improve team efficiency and collaboration",
+          "Worked on integrating multiple AI systems into internal workflows",
+          "Investigated and fixed alerting issues to improve monitoring accuracy",
+        ],
+        tech: [
+          "n8n",
+          "JavaScript",
+          "TypeScript",
+          "Python",
+          "Grafana",
+          "Prometheus",
+          "MySQL",
+        ],
+      },
+      {
+        role: "Freelance Developer",
+        company: "Independent",
+        type: "Freelance",
+        location: "Remote",
+        start: "Nov 2026",
+        end: "Present",
+        current: true,
+        summary:
+          "Independent developer working with clients and contributing to open-source projects across automation, integrations, and backend development.",
+        highlights: [
+          "Contribute to open-source projects by improving tooling, documentation, and developer experience",
+          "Build automation workflows and integrations tailored to client needs",
+          "Collaborate with maintainers and teams through code reviews, issue triage, and pull requests",
+          "Explore emerging AI automation tools and share reusable patterns with the developer community",
+        ],
+      },
+    ] as ExperienceItem[],
   },
 
   // skills: {
@@ -363,7 +437,7 @@ export const siteContent = {
 
   navbar: {
     logo: "UD",
-    links: ["Home", "About", "Skills", "Projects", "Contact"],
+    links: ["Home", "About", "Experience", "Skills", "Projects", "Contact"],
     cta: "Hire Me",
     ctaHref: "mailto:uvarajandev@gmail.com",
   },

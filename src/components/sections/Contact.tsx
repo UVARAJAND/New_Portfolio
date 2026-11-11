@@ -75,7 +75,7 @@ export function Contact() {
 
           {/* Heading */}
           <h2 className="text-[44px] sm:text-[56px] md:text-[64px] font-black font-display tracking-tighter leading-[0.95] mb-6 text-white uppercase">
-            Let's build <br />
+            Let&apos;s build <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary via-white to-link">
               great things
             </span><br />
@@ -128,7 +128,7 @@ export function Contact() {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none rounded-2xl" />
                 <div className="text-left z-10 flex flex-col h-full justify-between">
                   <div>
-                    <span className="text-[10px] font-mono text-accent-primary uppercase tracking-widest block">// DIRECT INQUIRY</span>
+                    <span className="text-[10px] font-mono text-accent-primary uppercase tracking-widest block">{"// DIRECT INQUIRY"}</span>
                     <h4 className="text-[18px] font-bold text-white mt-1 mb-1">Copy Email</h4>
                     <p className="text-[12px] text-white/40 font-sans leading-normal">Fastest way to get in touch for projects or career offers.</p>
                   </div>
@@ -180,7 +180,7 @@ export function Contact() {
 
                   <div className="z-10 flex flex-col h-full justify-between items-start text-left">
                     <div>
-                      <span className="text-[10px] font-mono text-link uppercase tracking-widest block">// ATTACHMENTS</span>
+                      <span className="text-[10px] font-mono text-link uppercase tracking-widest block">{"// ATTACHMENTS"}</span>
                       <h4 className="text-[18px] font-bold text-white mt-1 mb-1">Resume / CV</h4>
                       <p className="text-[12px] text-white/40 font-sans leading-normal">Review experience, skills, research papers and project accomplishments.</p>
                     </div>
@@ -201,7 +201,7 @@ export function Contact() {
 
             {/* Socials Row */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full px-2">
-              <span className="text-[11px] font-mono text-white/30 uppercase tracking-widest block">// SOCIAL NETWORK</span>
+              <span className="text-[11px] font-mono text-white/30 uppercase tracking-widest block">{"// SOCIAL NETWORK"}</span>
               <div className="flex items-center gap-4">
                 {siteContent.contact.socials && siteContent.contact.socials.map((social, i) => (
                   <motion.a

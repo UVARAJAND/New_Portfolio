@@ -4,6 +4,7 @@ import { Navbar } from "@/components/ui/Navbar"
 import { Footer } from "@/components/ui/Footer"
 import { Hero } from "@/components/sections/Hero"
 import { About } from "@/components/sections/About"
+import { Experience } from "@/components/sections/Experience"
 import { Skills } from "@/components/sections/Skills"
 import { SystemDesign } from "@/components/sections/SystemDesign"
 import { Projects } from "@/components/sections/Projects"
@@ -29,6 +30,7 @@ export default function Home() {
       >
         <Hero />
         <About />
+        <Experience />
         <Skills />
         <SystemDesign />
         <Projects />

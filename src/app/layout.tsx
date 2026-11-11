@@ -19,8 +19,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Uvarajan D | Backend Developer Portfolio",
-  description: "Backend developer portfolio showcasing scalable APIs, system design, and AI-integrated engineering projects.",
+  title: "Uvarajan D | AI Automation & Integration Engineer",
+  description: "Portfolio of Uvarajan D, an AI Automation & Integration Engineer and Backend Developer building scalable APIs, intelligent workflows, and well-architected systems.",
   icons: {
     icon: '/u_logo.jpeg',
   },
@@ -34,8 +34,17 @@ const personSchema = {
   "@type": "Person",
   "name": "Uvarajan D",
   "url": "https://uvarajan-d.vercel.app",
-  "jobTitle": "Backend Developer",
+  "jobTitle": "AI Automation & Integration Engineer",
   "email": "uvarajandev@gmail.com",
+  "knowsAbout": [
+    "AI Automation",
+    "System Integration",
+    "Backend Development",
+    "System Design",
+    "Python",
+    "FastAPI",
+    "n8n"
+  ],
   "sameAs": [
     "https://github.com/UVARAJAND",
     "https://www.linkedin.com/in/uvarajan-dev/"
